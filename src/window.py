@@ -37,5 +37,5 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self.connect(
             "destroy",
-            lambda w: (self.main_box.side_panel.chat_bot.cleanup(), app.quit()),
+            lambda w: (self.main_box.side_panel.SideChatbot.cleanup(), app.quit()),
         )

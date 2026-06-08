@@ -113,7 +113,7 @@ CHAT_CSS = f"""
 """
 
 
-class ChatBot(Gtk.Box):
+class SideChatbot(Gtk.Box):
     def __init__(self):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self.get_style_context().add_class("chatbot")

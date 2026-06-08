@@ -1,4 +1,4 @@
-from .chat_bot import ChatBot
+from .side_chatbot import SideChatbot
 from .side_keybindings import SideKeybindings
 from .terminal_box import TerminalBox
 from .footer import Footer

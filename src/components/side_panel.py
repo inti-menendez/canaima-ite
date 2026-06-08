@@ -1,6 +1,6 @@
 from gi.repository import Gtk
 
-from .chat_bot import ChatBot
+from .side_chatbot import SideChatbot
 from .side_keybindings import SideKeybindings
 from .side_explorer import sideExplorer
 from .side_history import SideHistory
@@ -55,13 +55,13 @@ class SidePanel(Gtk.Revealer):
         self.stack.set_size_request(self.width, -1)
         self.add(self.stack)
 
-        self.chat_bot = ChatBot()
+        self.chatbot = SideChatbot()
         self.explorer = sideExplorer()
         self.history = SideHistory()
         self.keybindings = SideKeybindings()
         self.preferences = SidePreferences()
 
-        self.stack.add_named(self.chat_bot, "side_chatbot")
+        self.stack.add_named(self.chatbot, "side_chatbot")
         self.stack.add_named(self.explorer, "side_explorer")
         self.stack.add_named(self.history, "side_history")
         self.stack.add_named(self.keybindings, "side_keybindings")
