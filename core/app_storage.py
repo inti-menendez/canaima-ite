@@ -131,10 +131,8 @@ default_preferences = {
         "provider": "local",
         "openrouter_model": "openrouter/free",
         "default_provider": "openrouter",
-        "api_key_openrouter": "",
         "local_model": "",
     },
-    "global": {"theme": "dark", "show_timestamp": True},
     "history_component": {"default_click_action": "paste", "limit": 1000},
 }
 
