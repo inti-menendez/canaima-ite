@@ -164,5 +164,3 @@ Antes de enviar un cambio o dar por finalizada una sesión de desarrollo, asegú
 * No se han añadido nuevas dependencias a los módulos sin registrar el cambio correspondiente en el archivo `requirements.txt`.
 * El directorio `assets/` se mantiene organizado y todos los recursos estáticos invocados en el código están ubicados en su interior.
 * En caso de modificar configuraciones críticas del sistema operativo o dependencias de interfaz, se ha verificado que la compatibilidad con `libgirepository-2.0` no se vea comprometida.
-"""
-```
