@@ -1,0 +1,119 @@
+#IDEAS O COSAS POR HACER QUE SE ME VAYAN OCURRIENDO
+
+- sincronizar cambio de las pestañas de la terminal con el explorador[listo]
+- añadir un historial con persistencia propia [listo]
+
+- aplicar estandares de este modo 	[parcialmentelisto] [listo]
+    - Historial JSON	~/.local/share/tu-ite/	Son datos generados por el uso (estándar XDG Data).		
+    - Config/API Keys	~/.config/tu-ite/	Son preferencias del usuario (estándar XDG Config).		--> cambiado a KEYRINGS por seguridad
+
+- a las row commands del widget history vamos a ponerle opciones en el click derecho [listo]
+    - ejecutar [listo]
+    - pegar [listo]
+    - copiar [listo]
+    - eliminar entrada [listo]
+    - abrir entrada detallada [listo]
+    - accion por defecto al clickar (y se pone alguna de las anteriores)[listo]
+
+- añadir menu contextual para el explorador [listo]
+    - abrir en nueva terminal [listo]
+    - abrir en la terminal actual [listo]
+    - abrir en gestor de archivos [listo](pero:probar en linux, en wsl no me abre pq no tengo thunar (obviamente :|))[listooooo]
+    - copiar ruta [listo]
+    - copiar ruta relativa [listo](revisar que funciona bien con rutas relativas a la carpeta del proyecto)[removido temporalmente]
+    - renombrar [listo](en linea como en vscode)
+    - eliminar[listo](ya funciona para archivos y carpetas)
+
+- añadir un boton de refresh al explorador para actualizar la vista [listo]
+- añadir un bton para colapsar las carpetas en el explorador [listo]
+- añadir boton para ir atras en el explorador [listo]
+- añadir boton para pegar la ruta en el explorador [listo]
+
+- mejorar estilos del chatbot de IA[listo](seguir mejorando)
+
+- manejar errores de la widget de historial cuando no hay terminales abiertas [listo]
+
+- añadir proceso o sugerencias de instalacion al iniciar el programa por primera vez y que detecte que no tienes ollama. [listo](seria bueno hacerlo mas agradable) [listo]
+
+- añadir menu contextual a la terminal [listo]
+    - copiar [listo]
+    - pegar [listo]
+    - cut - > esto no es convencional dentro de terminales
+    - seleccionar todo [listo] (selecciona literalmente toda la terminal)
+    - kill process[listo]
+    - kill terminal [listo]
+    - split terminal [listo] (dividir verticalmente)
+    - dividir [listo] (dividir horizontalmente)
+    - ejecutar seleccion [listo]
+
+- al header tool items del notebook añadir un bton para elegir con que shell abrir la terminal [listo]
+
+- conservar tamaño al cerrar el side panel mejorando la UX [listo]
+
+- no cerrar/colapsar los directorios cuando eliminas algo [listo]
+
+- manejar mensajes de error de la api [listo]
+
+- atajo para descargar modelos (ponerla a funcionar) [listo]
+
+- añadir menu contextual a las pestañas del notebook [listo]
+    - cerrar pestaña [listo]
+    - cerrar las demás [listo]
+
+- al hacer doble click en una zona del header del notebook abrir una terminal [listo]
+
+- al hacer doble click en un tab de terminal poder cambiar el nombre [listo]
+
+- hacer arrastrable (drag and drop) las pestañas en el notebook [listo]
+
+- poder abrir archivos con nano en la medida de lo posible [listo]
+
+- poder abrir archivos con micro en la medida de lo posible [listo] (micro no viene por defecto en canaima pero esta mas agradable que nano)
+
+- al abrir archivos con micro o nano que la pestaña tenga el nombre del archivo [listo](mejorar)
+
+- panel de configuracion [listo]
+
+- panel para ver los atajos [listo]
+
+- desacoplar los keybindings de la arquitectura interna y extraer a un archivo externo para que el usuario los pueda configurar y personalizar [listo]
+
+- al menu contextual de la terminal añadir:
+    - Limpiar terminal [listo]
+    - Reiniciar terminal [listo]
+    - suspender proceso [listo]
+
+- hacer la integracion del footer y conectar sus señales con todos los componentes [parcialmentelisto](lista la integracion faltaria conectar tooodas las señales) [listooooo]
+
+- hacer que si un comando se ejecuta varias veces seguidas, no se guarde en el historial [listo]
+
+- al explorador añadir para crear elementos (carpetas, ficheros) [listo]
+
+
+- cuando estas en python (CONSOLA INTERACTIVA) y quieres pasar a otro sh obviamente da error, por como esta construido.pues buscarle la vuelta [listo]
+
+- el modo failover no esta funcionando [listo] (corregido y refactorizado)
+
+- añadir modo claro a la terminal o de alto contraste [listo]
+
+- actualizar el current shell en tiempo real [parcialmentelisto]
+
+- mostrar en la ui cuando el usuario detuvo la respuesta de la ia manualmente [listo]
+
+
+- añadir un panel flexible para arrojar o contener widgets del side panel para tener dos widgets al mismo tiempo por ejemplo, el chat con ia en un lado y el explorador en otro.
+
+- añadir consola de git a las opciones de shell
+
+- añadir atajos visuales como autocompletado o similares
+
+- añadir sugerencias en linea segun comandos del historial local
+
+- añadir sistemas de logs para el uso de la IA (si fallo algo si no, que modelo se uso etc)
+
+- añadir memoria o ventana de contexto a la ia
+
+- mejorar la parte de personalizacion de la IA
+
+
+- corregir la creacion de terminal split cuando hay mas de una pestaña 
