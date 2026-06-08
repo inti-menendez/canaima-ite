@@ -4,7 +4,7 @@
 
 ### 1.1. ¿Qué es Canaima Entorno Integrado de Terminal?
 
-Canaima Entorno Integrado de Terminal (Canaima ITE) es una aplicación avanzada diseñada para transformar la experiencia de interactuar con la línea de comandos en sistemas operativos basados en Linux, con especial optimización para la distribución nacional Canaima GNU/Linux. Esta herramienta combina una consola multinivel de alto rendimiento con un ecosistema de paneles laterales orientados a simplificar el flujo de trabajo técnico y acelerar la curva de aprendizaje de sus usuarios.
+El Entorno Integrado de Terminal Canaima ITE es una aplicación avanzada diseñada para transformar la experiencia de interactuar con la línea de comandos en sistemas operativos basados en Linux, pensado especialmente para la distribución nacional Canaima GNU/Linux 8. Esta herramienta combina una consola de alto rendimiento con un ecosistema de paneles laterales orientados a simplificar el flujo de trabajo técnico y acelerar la curva de aprendizaje de sus usuarios.
 
 ### 1.2. Filosofía de Aislamiento y Enfoque Pedagógico
 
@@ -40,24 +40,20 @@ Canaima ITE es sumamente liviano en su núcleo operativo, requiriendo menos de 2
 
 ### 3.1. Ejecución de Canaima ITE
 
-Canaima ITE se distribuye como un archivo binario único precompilado en formato ELF (de aproximadamente 27.9 MB), lo que elimina la necesidad de compilar código fuente o resolver dependencias complejas.
+Canaima ITE se distribuye como un archivo binario único precompilado en formato ELF, lo que elimina la necesidad de compilar código fuente o resolver dependencias complejas.
 
 Para ejecutarlo por primera vez:
 
-1. Otorgue permisos de ejecución al archivo binario desde la terminal:
-```bash
+1. Probablemente necesite otorgar permisos de ejecución al archivo binario desde la terminal:
+```zsh
 chmod +x canaima-ite
-
 ```
 
-
 2. Inicie la aplicación de forma gráfica o mediante la consola:
-```bash
+```zsh
 ./canaima-ite
 
 ```
-
-
 
 ### 3.2. Configuración de la Asistencia Local (Ollama)
 
@@ -67,7 +63,7 @@ Si su objetivo es trabajar de forma 100 % privada, desconectado de internet o de
 
 Abra una terminal tradicional y ejecute el instalador oficial para entornos Linux:
 
-```bash
+```zsh
 curl -fsSL https://ollama.com/install.sh | sh
 
 ```
@@ -76,18 +72,17 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 Ollama se integra automáticamente como un servicio del sistema a través de Systemd. Verifique que esté operando en el puerto estándar (11434):
 
-```bash
+```zsh
 systemctl status ollama
-
 ```
+tambien puede abrir en el navegador `http://localhost:11434/`
 
-#### Paso 3: Descarga de un Modelo Pedagógico
+#### Paso 3: Descarga de un Modelo 
 
-Debe descargar al menos un modelo de lenguaje para que el panel de Canaima ITE pueda recibir consultas. Se recomiendan modelos optimizados para codificación y comandos breves, como `llama3` o `mistral`:
+Debe descargar al menos un modelo de lenguaje para que el panel de Canaima ITE pueda recibir consultas. Se recomiendan modelos optimizados para codificación y comandos breves, como `llama3` o `mistral`, aunque si es para pruebas iniciales o muy basicas puedes probar con `qwen2.5:0.5b`:
 
-```bash
-ollama pull llama3
-
+```zsh
+ollama pull qwen2.5:0.5b
 ```
 
 ### 3.3. Configuración de Proveedores Remotos
@@ -97,41 +92,42 @@ Si su equipo cuenta con recursos limitados de hardware, puede optar por la asist
 * Acceda a las plataformas oficiales del proveedor de su preferencia.
 * Genere una llave de API (`API Key`) desde su panel de control de desarrollador.
 * Copie la llave para su posterior introducción en Canaima ITE.
+puede ver mas en el archivo `get-apikey-guide.md`
 
 ---
 
 ## 4. Configuración Inicial de la Aplicación
 
-Al abrir Canaima ITE, diríjase al extremo inferior del Panel Lateral y haga clic en la pestaña de **Preferencias** (o presione el atajo de teclado asignado).
-
-```text
-+--------------------------------------------------------------+
-| Preferencias de IA                                           |
-|                                                              |
-| Proveedor Activo: [ Ollama (Local) v ]                       |
-| Modelo Seleccionado: [ llama3      v ]                       |
-|                                                              |
-| Clave de API (Online): [ ********************************* ] |
-| Endpoint Personalizado: [ http://localhost:11434/v1        ] |
-+--------------------------------------------------------------+
-
-```
+Al abrir Canaima ITE, diríjase al panel de chatbot y en la esquina superior derecha haga clic en el icono de configuración.
 
 ### 4.1. Activación de Ollama (Local)
 
-1. En el menú desplegable "Proveedor Activo", seleccione **Ollama**.
-2. En el campo "Modelo Seleccionado", asegúrese de escribir exactamente el nombre del modelo que descargó en su terminal (ej. `llama3` o `mistral`).
-3. Guarde los cambios. El sistema apuntará directamente al socket de su máquina.
+1. En la ventana de configuración busca el campo "modelo activo en el sistema:" (en la seccion "local/ollama") y seleccione el modelo que guste (aqui estan los modelos instalados localmente).
+2. Guarde los cambios. El sistema apuntará directamente.
+3. En el panel de chatbot asegurate de cambiar a modo local en el boton que se encuentra en el medio del header.
+
+> nota: en esta misma ventana puedes descargar modelos colocando el nombre exacto en el campo "descargar nuevo modelo desde la biblioteca de ollama:"
+> nota: luego de esto, si el modelo no esta cargado en memoria es probable que la primera consulta local sea relativamente lenta, no te preocupes, deja que el modelo cargue e inmediatamente comenzará a responder.
 
 ### 4.2. Activación de Proveedores Online
 
-1. Seleccione **Groq**, **OpenRouter** o **Cerebras** en el menú desplegable.
-2. Pegue la llave correspondiente en el campo "Clave de API".
-3. Guarde las preferencias. A partir de ese momento, el chat interactivo se comunicará con las APIs remotas utilizando cifrado TLS estándar.
+0. dirijase a la ventana de configuración del chatbot (boton de configuración en el panel de chatbot en la esquina superior derecha)
+1. en la seccion "nube/api" vera una serie de proveedores, seleccione el que desee.
+2. Pegue la llave correspondiente en el campo "Clave de la API (API KEY):".
+3. Seleccione el modelo que guste.
+4. en el campo proveedor prioritario seleccione el proveedor que guste (en este caso el que tenga api key ya configurada)
+5. Guarde las preferencias. 
+
+A partir de ese momento, el chat interactivo se comunicará con las APIs remotas.
+
+> **nota**: estos proveedores han sido seleccionados por su velocidad, y por su capa gratuita, sin embargo canaima ite no hace distinción entre modelos gratuitos o de pago, la selección del modelo e interaccion con el mismo es responsabilidad del usuario. (se pueden aplicar cargos por consumo de tokens o créditos segun el proveedor)
+> **nota aclaratoria de lo mencionado arriba**: los proveedores seleccionados por defecto **(openrouter, groq, cerebas)** no consumen tokens ni creditos a menos que los tengas disponibles, es decir, que si no tienes tokens o creditos disponibles e intentas usar un modelo de pago, el modelo simplemente no respondera y devolvera un codigo de error, pero no aplicará cargos por consumo, en cambio si tienes tokens o creditos e intentas usar modelos de pago, el proveedor si hara consumo de esos creditos, es importante tomar esto en consideración, aunque las capas gratuitas de estos proveedores son sumamente generosas y no deberian traerte problemas.
 
 ### 4.3. Servidores Propios y Endpoints Personalizados
 
-Si en su institución educativa o de investigación disponen de un servidor centralizado con tarjetas gráficas dedicadas ejecutando modelos de IA, puede seleccionar la opción **Personalizado**. Introduzca la URL raíz de su servidor en el campo "Endpoint Personalizado", asegurándose de que cumpla con el estándar de peticiones de OpenAI.
+Si en su institución educativa o de investigación disponen de un servidor centralizado con tarjetas gráficas dedicadas ejecutando modelos de IA, puede ir a la seccion  **Endpoints propios**. Introducir un nombre, la URL raíz de su servidor asegurándose de que cumpla con el estándar de peticiones de OpenAI y una apikey.
+
+> nota: si no tienes apikey configurada asegurate de rellenar el campo con cualquier contenido para que funcione correctamente.
 
 ---
 
@@ -141,8 +137,8 @@ Si en su institución educativa o de investigación disponen de un servidor cent
 
 El área central de la aplicación es su espacio de trabajo de consola.
 
-* **Nueva Pestaña:** Abre una sesión de shell completamente limpia e independiente. Cada pestaña hereda el entorno y los permisos del usuario que ejecutó el binario.
-* **Cierre Seguro:** Al cerrar una pestaña, el sistema envía una señal de terminación limpia (`SIGTERM`) a todos los subprocesos que se estuvieran ejecutando dentro de esa sesión específica para evitar procesos huérfanos.
+* **Nueva terminal:** en la esquina superior derecha del gestor de pestañas de la terminal hay una serie de botones, el primero abre una sesión de shell completamente limpia e independiente en una pestaña. Cada pestaña hereda el entorno y los permisos del usuario que ejecutó el binario.
+* **Cierre Seguro:** Al cerrar una pestaña en su iconico y respectivo boton de cierre o mediante cualquier otra señal, el sistema envía una señal de terminación limpia (`SIGTERM`) a todos los subprocesos que se estuvieran ejecutando dentro de esa sesión específica para evitar procesos huérfanos.
 
 ### 5.2. Uso del Chat Bot de Asistencia Técnica
 
@@ -154,7 +150,8 @@ El panel del Chat Bot es el único lugar donde interactúa la Inteligencia Artif
 
 ### 5.3. Navegación Visual y Gestión de Historial
 
-* **Explorador Lateral:** Muestra un árbol gráfico del sistema de archivos. Permite hacer un seguimiento visual de las rutas donde está trabajando en la consola.
+* **Explorador Lateral:** Muestra un árbol gráfico del sistema de archivos. Permite hacer un seguimiento visual de las rutas donde está trabajando en la consola, hacer operaciones atomicas como eliminar, cambiar nombre, crear archivos, abrir en nano, entre otras.
+> nota: este explorador esta sincronizado con el cwd del terminal activo, es decir, la ruta de la terminal es la que se muestra en el explorador.
 * **Historial de Sesión:** Centraliza y clasifica los comandos ejecutados por el usuario. Cuenta con un cuadro de búsqueda rápida para localizar rápidamente combinaciones de comandos complejas que se hayan utilizado con anterioridad, reduciendo la necesidad de memorizar largas sintaxis de parámetros.
 
 ---
@@ -190,8 +187,6 @@ Canaima ITE promueve que el usuario entienda los fallos del sistema en lugar de 
 2. En el panel lateral del Chat Bot, introduce el texto acompañado de una petición de guía: *Obtuve este error en mi consola, ¿a qué se debe textualmente y cómo se soluciona conceptualmente?*
 3. El asistente analizará el texto de forma reactiva y responderá explicando la causa raíz (ej. falta de privilegios en el espacio de usuario o ausencia de una variable en el PATH) y sugerirá la estructura correctiva correspondiente para que el usuario la aplique manualmente.
 
-
-
 ### 6.3. Despliegue de Modelos Educativos en Servidores Dedicados
 
 Para entornos escolares, laboratorios universitarios de la UNEFA o dependencias del CNTI donde las estaciones de trabajo no dispongan de tarjetas gráficas dedicadas para procesar Ollama localmente, Canaima ITE permite centralizar la inteligencia.
@@ -200,9 +195,10 @@ Para entornos escolares, laboratorios universitarios de la UNEFA o dependencias 
 * **Flujo recomendado:**
 1. El administrador del laboratorio instala Ollama en un servidor centralizado y configura la variable de entorno `OLLAMA_HOST=0.0.0.0` para escuchar peticiones en la red de la institución.
 2. En las estaciones de trabajo de los estudiantes, se abre el panel de **Preferencias** de Canaima ITE.
-3. Se selecciona el modo de proveedor **Personalizado** y en el campo "Endpoint" se apunta a la dirección IP del servidor central (ej. `http://192.168.1.50:11434/v1`).
+3. Se selecciona el modo nube y selecciona el proveedor Personalizado asignado en la seccion de "endpoints propios" que apunta a la dirección IP del servidor central (ej. `http://192.168.1.50:11434/v1`).
 4. Los estudiantes dispondrán de asistencia interactiva inmediata sin consumir ciclos de CPU ni memoria RAM local de sus estaciones de trabajo.
 
+> nota: al asignar un proveedor personalizado o endpoint propio este se guarda en la configuración de la nube como un proveedor online mas, por lo que se puede asignar y usar acorde a los pasos descritos en el item 4.2 de este documento.
 ---
 
 ## 7. Resolución de Problemas (Troubleshooting)
@@ -213,29 +209,23 @@ Para entornos escolares, laboratorios universitarios de la UNEFA o dependencias 
 * **Causa:** El demonio de Ollama no se ha inicializado correctamente a través del gestor de servicios del sistema operativo.
 * **Procedimiento de corrección:**
 1. En una pestaña de terminal de Canaima ITE, invoque el estado del servicio:
-```bash
+```zsh
 systemctl status ollama
 
 ```
 
-
 2. Si el servicio se encuentra en estado `inactive` o `failed`, reinícielo utilizando privilegios de administrador:
-```bash
+```zsh
 sudo systemctl restart ollama
 
 ```
 
-
-3. Verifique manualmente la escucha del puerto local mediante el uso de `curl`:
-```bash
+3. Verifique manualmente la escucha del puerto local mediante el uso de `curl` o abriendo en el navegador:
+```zsh
 curl http://localhost:11434
-
 ```
 
-
 La consola debe retornar textualmente la cadena: *Ollama is running*.
-
-
 
 ### 7.2. Fallos de Autenticación y Límites de Tasa con Proveedores Online
 
@@ -244,9 +234,8 @@ La consola debe retornar textualmente la cadena: *Ollama is running*.
 * **Procedimiento de corrección:**
 1. Ingrese a la consola web del proveedor seleccionado (Groq, OpenRouter o Cerebras).
 2. Revoque la llave anterior y genere una cadena de credenciales completamente nueva.
-3. Acceda al panel de **Preferencias** de Canaima ITE, limpie el campo de texto anterior y pegue la nueva llave.
-4. Asegúrese de hacer clic en **Guardar Cambios** para forzar al motor `ConfigEngine` a refrescar las variables de entorno en memoria.
-
+3. Acceda a la configuración del asistente de IA en la seccion de nube/api, limpie la clave anterior del proveedor correspondiente y pegue la nueva llave.
+4. Asegúrese de hacer clic en **Guardar Cambios** para forzar al motor a refrescar las variables de entorno en memoria.
 
 
 ### 7.3. Conflictos con Atajos de Teclado Globales del Entorno de Escritorio
@@ -257,6 +246,4 @@ La consola debe retornar textualmente la cadena: *Ollama is running*.
 1. Identifique cuál es el atajo en conflicto.
 2. Diríjase al panel lateral de **Atajos de Teclado** de Canaima ITE.
 3. Haga clic sobre la acción que desea remapear y presione una nueva combinación que incluya modificadores secundarios (como `Ctrl + Shift` o `Ctrl + Alt`).
-4. Alternativamente, puede acceder a la configuración de teclado nativa de su entorno de escritorio y deshabilitar el atajo global que interfiere con la aplicación técnica.
-
----
+4. Alternativamente, puede acceder a la configuración de teclado nativa de su entorno de escritorio y deshabilitar el atajo global que interfiere con la aplicación técnica, pero no es recomendado.
