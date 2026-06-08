@@ -16,7 +16,7 @@ Desarrollado en el marco del Centro Nacional de Tecnologías de Información (CN
 
 El software se rige bajo un enfoque de diseño modular de alta cohesión y bajo acoplamiento, combinando patrones arquitectónicos modernos adaptados a interfaces gráficas:
 
-1. **Diseño Orientado a Componentes:** Cada sección del Panel Lateral (`chat_bot.py`, `side_explorer.py`, `side_history.py`, `side_keybindings.py`, `side_preferences.py`) funciona de forma autónoma, facilitando el mantenimiento y la escalabilidad del sistema sin romper la estabilidad funcional.
+1. **Diseño Orientado a Componentes:** Cada sección del Panel Lateral (`side_chatbot.py`, `side_explorer.py`, `side_history.py`, `side_keybindings.py`, `side_preferences.py`) funciona de forma autónoma, facilitando el mantenimiento y la escalabilidad del sistema sin romper la estabilidad funcional.
 2. **Bus de Eventos (Event Bus):** Implementado en `event_bus.py`, centraliza la comunicación inter-componente mediante la publicación y suscripción de eventos, evitando dependencias directas entre la interfaz de usuario y los motores de lógica de negocio.
 3. **Motores en Patrón Singleton:** Instancias críticas del núcleo, tales como `KeybindingEngine` y `ConfigEngine`, garantizan una única fuente de verdad para el estado de la aplicación y la persistencia de configuraciones globales.
 4. **Reactividad Nativa GObject:** Aprovechamiento de señales e hilos (threading) integrados con el bucle de eventos principal (Main Loop) de GTK 3 para procesar respuestas asíncronas de la Inteligencia Artificial, impidiendo que la interfaz de usuario sufra bloqueos o congelamientos durante la latencia de red.
