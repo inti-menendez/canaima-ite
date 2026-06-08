@@ -1,50 +1,6 @@
 # Manual de Usuario e Instalación - Canaima ITE
 
 ## 1. Introducción a Canaima ITE
-   1.1. ¿Qué es Canaima ITE?
-   1.2. Beneficios del asistente de IA
-   1.3. Filosofía de Privacidad y Operación Local
-
-## 2. Requisitos y Compatibilidad
-   2.1. Plataformas Soportadas (Canaima GNU/Linux 8+, Debian GNU/Linux y Derivados)
-   2.2. Requisitos de Hardware Mínimos y Recomendados (Hardware para Modelos Locales)
-
-## 3. Guía de Instalación del Sistema y sus Entornos de IA
-   3.1. Ejecución del Binario ELF Standalone
-   3.2. Configuración de la Asistencia Local (Ollama)
-        3.2.1. Instalación del Servicio Ollama mediante Script Oficial
-        3.2.2. Gestión del Servicio del Sistema (Systemd)
-        3.2.3. Descarga de Modelos de Lenguaje (Llama, Mistral, etc.)
-   3.3. Configuración de Proveedores Remotos
-        3.3.1. Obtención de Credenciales (Groq, OpenRouter, Cerebras)
-
-## 4. Configuración Inicial de la Aplicación
-   4.1. Primer Inicio de Canaima ITE
-   4.2. Uso del Panel de Preferencias
-   4.3. Vinculación de API Keys y Endpoints Personalizados bajo Estándar OpenAI
-
-## 5. Manual de Operación de la Interfaz
-   5.1. Gestión Avanzada de Terminales (Creación, Cierre y Navegación de Pestañas)
-   5.2. Interacción con el Asistente de IA (Módulo Chat Bot)
-   5.3. Navegación por el Sistema de Archivos desde el Panel Lateral
-   5.4. Uso del Historial Centralizado y Búsqueda de Comandos
-   5.5. Personalización Práctica de Atajos de Teclado
-
-## 6. Flujos de Trabajo Avanzados y Casos de Uso
-   6.1. Automatización de Comandos Complejos mediante Asistencia de IA
-   6.2. Diagnóstico y Explicación Contextual de Errores en Terminal
-   6.3. Configuración de Proveedores de IA Propios en Servidores Dedicados
-
-## 7. Resolución de Problemas (Troubleshooting)
-   7.1. El Servicio de Ollama no Responde (Validación de Sockets y Puertos)
-   7.2. Fallos de Conectividad con Proveedores Online (Validación de API Keys)
-   7.3. Conflictos con Atajos de Teclado Globales del Entorno de Escritorio
-
----
-
-# Manual de Usuario e Instalación - Canaima ITE
-
-## 1. Introducción a Canaima ITE
 
 ### 1.1. ¿Qué es Canaima Entorno Integrado de Terminal?
 

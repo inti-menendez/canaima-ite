@@ -1,58 +1,6 @@
 # Guía Técnica de Desarrollo - Canaima ITE
 
 ## 1. Introducción y Contexto Institucional
-   1.1. Propósito del Documento
-   1.2. Marco del Proyecto: CNTI (Oficina de Operaciones Canaima) y UNEFA
-   1.3. Objetivos de Soberanía Tecnológica
-
-## 2. Arquitectura General del Sistema
-   2.1. Paradigma de Diseño Orientado a Componentes
-   2.2. Patrón de Desacoplamiento mediante Bus de Eventos (Event-Driven Architecture)
-   2.3. Ciclo de Vida de la Aplicación y el Main Loop de GTK 3
-   2.4. Gestión de Concurrencia y Hilos (Threading) en Operaciones Asíncronas
-
-## 3. Arquitectura del Núcleo (Core Engines)
-   3.1. Bus de Eventos (`event_bus.py`): Publicación, Suscripción y Despacho
-   3.2. Motor de Configuración (`config_engine.py`): Persistencia, Estructura JSON y Patrón Singleton
-   3.3. Motor de Atajos de Teclado (`keybinding_engine.py`): Captura, Validación y Remapeo Dinámico
-
-## 4. Subsistema de Inteligencia Artificial
-   4.1. Abstracción del Cliente de IA (`ia_client.py`)
-   4.2. Orquestación de Modelos (`ia_model_manager.py`): Lógica de Selección Local (Ollama) vs. Remota
-   4.3. Integración con el Estándar de la API de OpenAI
-   4.4. Manejo de Respuestas por Streaming y Evitación de Bloqueos en la GUI
-
-## 5. Componentes de la Interfaz Gráfica (GTK 3 + Vte)
-   5.1. Inicialización y Gestión de Ventanas (`main.py`)
-   5.2. Emulación de Terminal y Manejo de Pestañas mediante la Biblioteca Vte
-   5.3. Contenedor del Panel Lateral (`side_panel.py`)
-   5.4. Componentes Modulares de Panel:
-        5.4.1. Asistente de IA (`chat_bot.py`)
-        5.4.2. Explorador de Archivos Contextual (`side_explorer.py`)
-        5.4.3. Buscador e Historial de Comandos (`side_history.py`)
-        5.4.4. Configuración Interactiva de Atajos (`side_keybindings.py`)
-        5.4.5. Panel de Preferencias Generales (`side_preferences.py`)
-
-## 6. Entorno de Desarrollo y Replicación
-   6.1. Requisitos del Sistema y Dependencias de Compilación
-   6.2. Configuración del Entorno Virtual (Venv) en Canaima/Debian
-   6.3. Mapeo de Señales GObject y Vinculaciones (Bindings) de Python
-
-## 7. Compilación, Empaquetado y Despliegue Avanzado
-   7.1. Compilación Estática con Nuitka: Parámetros y Optimización del Binario ELF
-   7.2. Análisis de Consumo de Recursos (Métricas de CPU y Memoria RAM del Informe)
-   7.3. Pipeline de Despliegue para Repositorios Canaima GNU/Linux
-
-## 8. Licenciamiento y Modelo de Contribución
-   8.1. Aplicación Práctica de la Licencia GPLv3 en el Código Fuente
-   8.2. Directrices para el Envío de Parches y Extensiones de Componentes
-
-
----
-
-# Guía Técnica de Desarrollo - Canaima ITE
-
-## 1. Introducción y Contexto Institucional
 
 ### 1.1. Propósito del Documento
 
