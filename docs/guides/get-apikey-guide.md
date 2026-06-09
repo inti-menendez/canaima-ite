@@ -1,4 +1,4 @@
-# manual de usuario para obtener las api keys de proveedores personalizados
+# Manual de usuario para la obtencion de api keys
 Esta guía detalla el procedimiento paso a paso para la obtención de las claves de API (API Keys) de los tres proveedores en la nube soportados de forma nativa por Canaima ITE.
 
 ---

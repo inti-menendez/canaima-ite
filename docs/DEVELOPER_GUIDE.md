@@ -149,13 +149,13 @@ Para configurar el entorno de desarrollo de Canaima ITE sobre la distribución n
 * **Interfaz Gráfica:** `python3-gi` y `python3-gi-cairo`, necesarios para la inyección y manipulación de los widgets de GTK 3 mediante PyGObject.
 * **Compilación:** Conjunto de herramientas GCC (GNU Compiler Collection) junto al paquete `patchelf`, indispensables para el enlazado estático de bibliotecas compartidas durante la fase de optimización con Nuitka.
 
-ver el archivo `dev-guide.md` para mas información
+ver la [guia del entorno dev](guides/dev-guide.md) para mas información
 
 ### 6.2. Estructura de Directorios del Proyecto
 
 El código fuente de la aplicación se organiza de forma modular y desacoplada, separando estrictamente los motores lógicos de los contenedores gráficos de la interfaz de usuario:
 
-```text
+```
 canaima-ite/
 ├── assets
 │   └── canaima-logo.png
@@ -171,9 +171,21 @@ canaima-ite/
 │   ├── keybindings.py
 │   ├── system_instructions.py
 │   └── terminal_palettes.py
-├── guides
-│   ├── build-guide.md
-│   └── dev-guide.md
+├── docs
+│   ├── guides
+│   │   ├── build-guide.md
+│   │   ├── dev-guide.md
+│   │   └── get-apikey-guide.md
+│   ├── lib
+│   │   ├── docsify-copy-code.min.js
+│   │   ├── docsify.min.js
+│   │   ├── index.min.js
+│   │   └── style.min.css
+│   ├── DEVELOPER_GUIDE.md
+│   ├── index.html
+│   ├── README.md
+│   ├── _sidebar.md
+│   └── USER_MANUAL.md
 ├── scripts
 │   ├── add.py
 │   ├── build.sh
@@ -197,14 +209,12 @@ canaima-ite/
 │   │   └── terminal_box.py
 │   ├── __init__.py
 │   └── window.py
-├── DEVELOPER_GUIDE.MD
 ├── LICENSE
 ├── main.bin
 ├── main.py
 ├── README.md
 ├── requirements.txt
-├── TODO
-└── USER_MANUAL.MD
+└── TODO
 ```
 
 ### 6.3. Cumplimiento del Estándar XDG Base Directory
@@ -223,7 +233,7 @@ Canaima ITE rechaza la polución del directorio raíz del usuario (`~`) mediante
 Para resolver el aislamiento de dependencias en entornos de producción y omitir el sobrecosto de interpretación en tiempo de ejecución, el despliegue no se realiza en formato de script puro. Se utiliza el compilador avanzado Nuitka, el cual procesa el código fuente Python, analiza sus árboles de sintaxis abstracta (AST) y lo traduce directamente a código fuente de bajo nivel C/C++, que posteriormente es compilado en un ejecutable nativo por GCC.
 
 El comando de producción implementado para la generación del binario se puede ver en el script `build.sh`:
-para mas informacion leer el archivo `build-guide.md`
+para mas informacion leer la [guia de compilacion](guides/build-guide.md)
 
 
 ### 7.2. Optimización LTO (Link Time Optimization) y Compresión Zstandard
@@ -236,7 +246,7 @@ El proceso de construcción inyecta dos técnicas críticas de optimización de 
 ### 7.3. Reducción del Peso del Binario ELF
 
 Durante las fases iniciales de desarrollo del proyecto, el uso de empaquetadores convencionales basados en la recolección de entornos virtuales interpretados generaba un archivo ejecutable redundante que alcanzaba los 120 megabytes de peso. La adopción final de la compilación nativa estática con Nuitka redujo el tamaño final del binario ejecutable único en formato ELF a unos 33mb aproximadamente, logrando un ahorro de almacenamiento superior y garantizando una distribución sumamente liviana en los repositorios oficiales de Canaima GNU/Linux.
-para mas informacion sobre las alternativas de empaquetamiento leer `build-guide.md     `
+para mas informacion sobre las alternativas de empaquetamiento leer la [guia de compilacion](guides/build-guide.md)
 
 ---
 
@@ -261,7 +271,7 @@ $$\text{RAM}_{ite} = 7782.4\,\text{MB} \times 0.026 = 202.34\,\text{MB}$$
 
 ### 8.2. Justificación de la Carga de Memoria y Sostenibilidad
 
-El incremento neto observado de aproximadamente **155.65 megabytes** se encuentra plenamente justificado desde la perspectiva de la ingeniería de software. Este margen representa el costo en memoria de cargar simultáneamente el entorno de hilos concurrentes de Python, las estructuras del árbol de datos para el explorador visual, la persistencia indexada del historial y el búfer de texto enriquecido del chat del asistente de IA.
+El incremento neto observado de aproximadamente **155.65 megabytes** se encuentra plenamente justificado desde la perspectiva de la ingeniería de software. Este margen representa el costo en memoria de cargar simultáneamente el entorno de hilos concurrentes de Python, las estructuras del árbol de datos para el explorador visual, la persistencia indexada del historial y el búfer de texto enriquecido del chat del asistente de IA. 
 
 Considerando que esta integración compacta disminuye la necesidad de mantener abiertos navegadores web comerciales o gestores de archivos gráficos independientes, Canaima ITE demuestra una eficiencia operativa excepcional, disminuyendo el costo cognitivo y optimizando los recursos del hardware anfitrión de forma sustentable.
----
+

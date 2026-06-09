@@ -52,8 +52,8 @@ chmod +x canaima-ite
 2. Inicie la aplicación de forma gráfica o mediante la consola:
 ```zsh
 ./canaima-ite
-
 ```
+
 
 ### 3.2. Configuración de la Asistencia Local (Ollama)
 
@@ -92,7 +92,8 @@ Si su equipo cuenta con recursos limitados de hardware, puede optar por la asist
 * Acceda a las plataformas oficiales del proveedor de su preferencia.
 * Genere una llave de API (`API Key`) desde su panel de control de desarrollador.
 * Copie la llave para su posterior introducción en Canaima ITE.
-puede ver mas en el archivo `get-apikey-guide.md`
+
+Para obtener soporte detallado sobre cómo generar las credenciales en cada plataforma, consulte la [Guía de Obtención de API Keys](guides/get-apikey-guide.md).
 
 ---
 
@@ -120,8 +121,9 @@ Al abrir Canaima ITE, diríjase al panel de chatbot y en la esquina superior der
 
 A partir de ese momento, el chat interactivo se comunicará con las APIs remotas.
 
-> **nota**: estos proveedores han sido seleccionados por su velocidad, y por su capa gratuita, sin embargo canaima ite no hace distinción entre modelos gratuitos o de pago, la selección del modelo e interaccion con el mismo es responsabilidad del usuario. (se pueden aplicar cargos por consumo de tokens o créditos segun el proveedor)
-> **nota aclaratoria de lo mencionado arriba**: los proveedores seleccionados por defecto **(openrouter, groq, cerebas)** no consumen tokens ni creditos a menos que los tengas disponibles, es decir, que si no tienes tokens o creditos disponibles e intentas usar un modelo de pago, el modelo simplemente no respondera y devolvera un codigo de error, pero no aplicará cargos por consumo, en cambio si tienes tokens o creditos e intentas usar modelos de pago, el proveedor si hara consumo de esos creditos, es importante tomar esto en consideración, aunque las capas gratuitas de estos proveedores son sumamente generosas y no deberian traerte problemas.
+> nota: estos proveedores han sido seleccionados por su velocidad, y por su capa gratuita, sin embargo canaima ite no hace distinción entre modelos gratuitos o de pago, la selección del modelo e interaccion con el mismo es responsabilidad del usuario. (se pueden aplicar cargos por consumo de tokens o créditos segun el proveedor)
+
+> nota aclaratoria de lo mencionado arriba: los proveedores seleccionados por defecto **(openrouter, groq, cerebas)** no consumen tokens ni creditos a menos que los tengas disponibles, es decir, que si no tienes tokens o creditos disponibles e intentas usar un modelo de pago, el modelo simplemente no respondera y devolvera un codigo de error, pero no aplicará cargos por consumo, en cambio si tienes tokens o creditos e intentas usar modelos de pago, el proveedor si hara consumo de esos creditos, es importante tomar esto en consideración, aunque las capas gratuitas de estos proveedores son sumamente generosas y no deberian traerte problemas.
 
 ### 4.3. Servidores Propios y Endpoints Personalizados
 
@@ -236,6 +238,8 @@ La consola debe retornar textualmente la cadena: *Ollama is running*.
 2. Revoque la llave anterior y genere una cadena de credenciales completamente nueva.
 3. Acceda a la configuración del asistente de IA en la seccion de nube/api, limpie la clave anterior del proveedor correspondiente y pegue la nueva llave.
 4. Asegúrese de hacer clic en **Guardar Cambios** para forzar al motor a refrescar las variables de entorno en memoria.
+
+Para obtener soporte detallado sobre cómo generar las credenciales en cada plataforma, consulte la [Guía de Obtención de API Keys](guides/get-apikey-guide.md).
 
 
 ### 7.3. Conflictos con Atajos de Teclado Globales del Entorno de Escritorio

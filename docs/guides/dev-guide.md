@@ -90,7 +90,7 @@ Para generar los artefactos de distribución y ejecutables portables, se incorpo
 ```zsh
 pip install nuitka zstandard pyinstaller
 ```
-> nota: pyinstaller no es necesario para empaquetar con nuitka, si deseas empaquetar con pyinstaller, obviamente si, de resto, no es necesario instalarlo, puedes ver mas sobre esto en el archivo `build-guide.md`.
+> nota: pyinstaller no es necesario para empaquetar con nuitka, si deseas empaquetar con pyinstaller, obviamente si, de resto, no es necesario instalarlo, puedes ver mas sobre esto en el archivo guides/build-guide.md.
 
 * **zstandard:** Es obligatorio en el entorno virtual si utilizas Nuitka. Sin esta librería, el compilador empaquetará los binarios en crudo sin aplicar el algoritmo de compresión final, lo que resultaría en un ejecutable de gran tamaño.
 
@@ -135,7 +135,6 @@ Recomendado para la generación de releases oficiales. Nuitka traduce el código
 
 ```zsh
 python3 -m nuitka --standalone --onefile --include-data-dir=assets=assets --lto=yes main.py
-
 ```
 
 #### Análisis de Parámetros de Compilación:
@@ -149,10 +148,8 @@ python3 -m nuitka --standalone --onefile --include-data-dir=assets=assets --lto=
 * **Limpieza de espacio en desarrollo:** Al finalizar, el compilador deja huellas de compilación intermedias que ocupan gigabytes de espacio. Elimínalas con:
 ```zsh
 rm -rf main.build main.dist main.onefile-build
-
 ```
-
-Para ver mas sobre la compilación ver los ficheros `build.sh y build-guide.md`
+para mas informacion leer la [guia de compilacion](guides/build-guide.md)
 
 ---
 

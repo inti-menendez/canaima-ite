@@ -1,4 +1,4 @@
-## guia paso a paso para compilar el proyecto
+# Guía de Compilación de Canaima ITE Paso a Paso
 
 Este documento explica cómo preparar el entorno de desarrollo y compilar el proyecto usando nuitka paso a paso
 
