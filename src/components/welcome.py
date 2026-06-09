@@ -1,4 +1,5 @@
 from gi.repository import Gtk
+from .ia_settings_window import IASettingsWindow
 
 WELCOME_CSS = """
 .welcome-page {
@@ -15,6 +16,7 @@ class WelcomeTab(Gtk.ScrolledWindow):
     def __init__(self):
         super().__init__()
         self.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        self.ia_setting_window = None
 
         style_provider = Gtk.CssProvider()
         style_provider.load_from_data(WELCOME_CSS.encode())
@@ -65,7 +67,7 @@ class WelcomeTab(Gtk.ScrolledWindow):
             "Para trabajar de forma local, instale Ollama:\n"
             "<span font_family='monospace' background='#191919' foreground='#00ff66'> curl -fsSL https://ollama.com/install.sh | sh </span>\n\n"
             "Luego, descargue e inicialice el modelo base:\n"
-            "<span font_family='monospace' background='#191919' foreground='#00ff66'> ollama run llama3 </span>"
+            "<span font_family='monospace' background='#191919' foreground='#00ff66'> ollama run qwen2.5:0.5b </span>"
         )
         ollama_text.set_xalign(0)
         ollama_text.set_line_wrap(True)
@@ -85,11 +87,14 @@ class WelcomeTab(Gtk.ScrolledWindow):
             "• <b>OpenRouter:</b> Acceso a múltiples modelos abiertos.\n"
             "• <b>Groq:</b> Inferencia de alta velocidad.\n"
             "• <b>Cerebras:</b> Procesamiento de baja latencia.\n\n"
-            "Configure las credenciales desde el panel lateral de ajustes."
+            "Configure las credenciales abriendo los <a href='settings://open'>ajustes de IA aquí</a>."
         )
         api_text.set_xalign(0)
         api_text.set_line_wrap(True)
+        api_text.set_selectable(True)
+        api_text.set_track_visited_links(False)
         api_text.set_max_width_chars(10)
+        api_text.connect("activate-link", self._on_link_clicked)
         col1_box.pack_start(api_text, False, False, 0)
 
         col2_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5)
@@ -108,7 +113,6 @@ class WelcomeTab(Gtk.ScrolledWindow):
             "• <b>Doble clic en espacio libre:</b> Abre una nueva terminal.\n"
             "• <b>Doble clic en pestaña:</b> Cambiar nombre actual.\n"
             "• <b>Clic derecho en pestaña:</b> Menú de cierre rápido.\n\n"
-            "Revise las sugerencias del asistente en el panel lateral y ejecute los comandos."
         )
         cmd_text.set_xalign(0)
         cmd_text.set_line_wrap(True)
@@ -139,3 +143,19 @@ class WelcomeTab(Gtk.ScrolledWindow):
         col2_box.pack_start(link_button, False, False, 5)
 
         self.show_all()
+
+    def _on_link_clicked(self, label, uri):
+        if uri == "settings://open":
+            self.open_settings()
+            return True
+        return False
+
+    def open_settings(self):
+        if self.ia_setting_window is None or not self.ia_setting_window.get_visible():
+            from core.ia_client import client
+
+            self.ia_setting_window = IASettingsWindow(
+                callback_on_save=lambda: client.reload()
+            )
+        else:
+            self.ia_setting_window.present()
