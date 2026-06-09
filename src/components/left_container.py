@@ -4,6 +4,7 @@ from core.event_bus import bus
 from .command_detail import CommandDetail
 from core.keybindings_engine import registry
 import os
+from .welcome import WelcomeTab
 
 current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 logo_path = os.path.join(current_dir, "..", "assets", "canaima-logo.png")
@@ -140,9 +141,15 @@ class LeftContainer(Gtk.Notebook):
 
         self.connect("page-added", self.added_pages)
         self.connect("page-removed", self.removed_pages)
+        self.register()
+
+        self.welcome()
 
         self.show_all()
-        self.register()
+
+    def welcome(self):
+        welcome_tab = WelcomeTab()
+        self.add_custom_tab(welcome_tab, "Bienvenido")
 
     def register(self):
         registry.register_command("close", self.close_tab, self)
